@@ -1,0 +1,68 @@
+<div class="col-sm-12 col-lg-6 align-items-center justify-content-center" style="margin-top:2%">
+    <div class="bg-light border border-secondary rounded shadow p-3 mb-5"> 
+        <% if(productos.length == 0){ %>
+            <h2>No hay productos</h2>
+        <% }else{ %>
+            <table class="table text-secondary">
+                <tr>
+                    <td colspan="5"> <h2 class="text-center text-secondary">Productos</h2> </td>
+                </tr>
+                <tr>
+                    <td> 
+                        <b>Categorias</b> 
+                    </td>
+                    <td colspan="4"> 
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filtro" id="all" onclick="filtroCat('all')" checked>
+                            <label class="form-check-label" for="all">
+                                All
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filtro" id="Mouses" onclick="filtroCat('Mouses')">
+                            <label class="form-check-label" for="mouses">
+                                Mouses
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filtro" id="Teclados" onclick="filtroCat('Teclados')">
+                            <label class="form-check-label" for="teclados">
+                                Teclados
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filtro" id="Auriculares" onclick="filtroCat('Auriculares')">
+                            <label class="form-check-label" for="auriculares">
+                                Auriculares
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <b>Foto</b> </td>
+                    <td> <b>Descripción</b> </td>
+                    <td> <b>Precio</b> </td>
+                    <td> <b>Categoria</b> </td>
+                    <td> <b>Accion</b> </td>
+                </tr>
+            <% for (let i = 0; i < productos.length; i++) { %>
+                <tr>
+                    <td> <img width="70" src=<%= productos[i].foto %> > </td>
+                    <td> <%= productos[i].descripcion %> </td>
+                    <td> $<%= productos[i].precio %> </td>
+                    <td> <%= productos[i].categoria %> </td>
+                    <td> 
+                        <button onclick="prodById(`<%= productos[i].id %>`)" style="background: none; border: 0;">
+                            <img width="20" title="Editar producto" src="/icon/editar.png">
+                        </button> 
+
+                        <a href="/productos/delete/<%= productos[i].id %>" style="text-decoration: none;">
+                            <img width="20" title="Eliminar producto" src="/icon/eliminar.png">
+                        </a> 
+                    </td>
+                </tr>
+            <% }%>
+            </table>
+        <% }%>
+    </div>
+</div>

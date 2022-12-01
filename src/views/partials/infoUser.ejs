@@ -1,0 +1,41 @@
+<div class=" col-12 col-lg-3 align-items-center justify-content-center" style="margin-top:2%">
+    <div class="bg-light border border-secondary rounded shadow p-3 mb-5"> 
+        <table class="table text-secondary">
+            <tr>
+                <td colspan="2">
+                    <h2 class="text-center text-secondary">Bienvenido</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Nombre: <%= user.nombre %></h4>
+                    <h4>Email: <%= user.email %></h4>
+                    <h4>Numero telefónico: <%= user.numTel %></h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div align="center">
+                        <a href="/login/logout" class="btn btn-danger text-center">Cerrar Sesión</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="bg-light border border-secondary rounded shadow p-3 mb-5">
+        <h2 class="text-center text-secondary">Soporte</h2>
+        <hr>
+        <div align="center">
+            <a href="/mensajes" class="btn btn-primary text-center">Ir al centro de mensajes</a>
+        </div>
+    </div>
+    <% if(user.tipoUser){ %>
+        <div class="bg-light border border-secondary rounded shadow p-3 mb-5">
+            <h2 class="text-center text-secondary">Gestionar Productos</h2>
+            <hr>
+            <div align="center">
+                <a href="/productos" class="btn btn-success text-center">Ir a productos</a>
+            </div>
+        </div>
+    <% } %>
+</div>
