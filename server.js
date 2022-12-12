@@ -15,7 +15,7 @@ require('dotenv').config({ path: `.env.${NODE_ENV}` });
 require('./src/utils/passport');
 
 //Inicializacion
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8181;
 const app = express();
 const httpserver = new HttpServer(app);
 const io = new IOServer(httpserver);
