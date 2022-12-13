@@ -11,17 +11,15 @@ const cookieParser = require('cookie-parser');
 const NODE_ENV = process.env.NODE_ENV || 'production';
 require('dotenv').config({ path: `.env.${NODE_ENV}` });
 
-console.log(NODE_ENV)
-
 //requerimos configuracion de passport
 require('./src/utils/passport');
 
 //Inicializacion
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 const app = express();
 const httpserver = new HttpServer(app);
 const io = new IOServer(httpserver);
-console.log(PORT);
+
 // importacion de servicio de mensajes
 const chat = require('./src/services/mensajeService');
 
