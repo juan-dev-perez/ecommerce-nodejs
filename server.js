@@ -8,18 +8,20 @@ const session = require('./src/middlewares/session');
 const cookieParser = require('cookie-parser');
 
 // Inicializacion de variable NODE_ENV para luego elegir entorno de desarrollo o produccion
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV || 'production';
 require('dotenv').config({ path: `.env.${NODE_ENV}` });
+
+console.log(NODE_ENV)
 
 //requerimos configuracion de passport
 require('./src/utils/passport');
 
 //Inicializacion
-const PORT = process.env.PORT || 8181;
+const PORT = process.env.PORT || 8080;
 const app = express();
 const httpserver = new HttpServer(app);
 const io = new IOServer(httpserver);
-
+console.log(PORT);
 // importacion de servicio de mensajes
 const chat = require('./src/services/mensajeService');
 
