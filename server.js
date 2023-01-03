@@ -8,7 +8,7 @@ const session = require('./src/middlewares/session');
 const cookieParser = require('cookie-parser');
 
 // Inicializacion de variable NODE_ENV para luego elegir entorno de desarrollo o produccion
-const NODE_ENV = process.env.NODE_ENV || 'production';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 require('dotenv').config({ path: `.env.${NODE_ENV}` });
 
 //requerimos configuracion de passport
